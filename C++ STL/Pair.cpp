@@ -32,8 +32,4 @@ int main()
         swap(pi_array[i].first, pi_array[i].second);
         cout<<pi_array[i].first<<" "<<pi_array[i].second<<endl;
     }
-
-
-    
-
 }
