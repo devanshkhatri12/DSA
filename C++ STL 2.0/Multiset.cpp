@@ -31,3 +31,51 @@
 // Monk eats all candies from Third bag (3). The state of bags becomes:
 // 2 1 1 2 2
 // Hence, the Monk eats 7+4+3= 14
+
+
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int testcases;
+    cout<<"Input test cases"<<endl;
+    cin>>testcases;
+
+    while(testcases--)
+    {
+        int n;
+        // cout<<"no. of bags";
+        cin>>n;
+
+        int k;
+        // cout<<"bags eat in k time";
+        cin>>k;
+
+        multiset<long long> bags;
+        for(int i=0; i<k; i++)
+        {
+            long long candycount;
+            cin>>candycount;
+            bags.insert(candycount);
+        }
+
+        long long totalcandies = 0;
+        for(int i=0; i<k; i++)
+        {
+            // we did this bcz it decrease first assign later
+            auto last_it = (--bags.end());
+            long long candycount  = *last_it;
+            totalcandies += candycount;
+            bags.erase(last_it);
+            bags.insert(candycount / 2 );
+        }
+        cout<<totalcandies<<endl;
+    }
+}
+
+
+
+// erase() -> TC O(1) when it takes iteerator and, 
+// -> TC O(log(n))  when it takes value

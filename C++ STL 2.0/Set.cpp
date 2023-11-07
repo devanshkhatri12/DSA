@@ -34,5 +34,6 @@ int main()
     }
     cout<<endl;
 
-
+    print(s); 
+    
 }
