@@ -1,6 +1,11 @@
 #include<iostream>
 using namespace std;
 
+void update(int *p)
+{
+    *p = (*p) * 2;
+}
+
 int main()
 {
 /*
@@ -90,5 +95,52 @@ int main()
     cout<<*p<<endl;
 */
 
+/*
+    // Q.12
+    char ch = 'a';
+    char *p = &ch;
+    ch++;
+    cout<< *p <<endl;
+*/
 
+/*
+    // Q.13
+    char arr[] = "abcde";
+    char *p = &arr[0];
+    cout<< p<<endl;
+*/
+
+/*
+    // Q.14
+    char arr[] = "abcede";
+    char *p = &arr[0];
+    p++;
+    cout<< p <<endl;
+*/
+
+/*
+    // Q.15
+    int i= 10;
+    update(&i);
+    cout<< i<<endl;
+*/
+
+/*
+    // Q.16
+    int first = 110;
+    int *p = &first;
+    int **q = &p;
+    int second  = (**q)++ + 9;
+    cout<< first << " " << second << endl;
+*/
+
+/*
+    int first = 100;
+    int *p = &first;
+    int **q = &p;
+    int second = ++(**q);
+    int *r = *q;
+    ++(*r);
+    cout<< first << " " << second << endl;
+*/
 }
