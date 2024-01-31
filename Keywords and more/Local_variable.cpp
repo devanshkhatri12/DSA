@@ -18,7 +18,7 @@ void b(int& i)
 
 int main()
 {
-    int i=5;        // -> local variable
+    int i=10;        // -> local variable
     cout<<"inner main "<<i<<endl;
     cout<<"score inner main is "<<score<<endl;
     b(i);
