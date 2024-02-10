@@ -1,3 +1,20 @@
+// TC - O(nlog(n))
+// SC - O(n)
+
+// Approach -> 
+
+
+// Advantages of Merge Sort:- 
+// 1. Stability -> means it maintains the relative order of equal elements in the input array.
+// 2. Guaranteed worst-case performance -> means it performs well even on large datasets  
+// 3. Parallelizable -> means it can be easily parallelized to take advantage of multiple processors or threads.
+
+// Drawbacks of Merge Sort:
+// 1. Space complexity -> means it requires additional memory to store the merged sub-arrays during the sorting process.
+// 2. Not in-place -> means it requires additional memory to store the sorted data
+// 3. Not always optimal for small datasets -> This can result in slower performance for very small datasets
+
+
 #include<iostream>
 using namespace std;
 
