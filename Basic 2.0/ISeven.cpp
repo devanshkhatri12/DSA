@@ -10,6 +10,22 @@ bool IsEven(int n)
     return 1;  //even no.
 }
 
+void isEven(int n)
+{
+    if((n /2) * 2 == n)
+    {
+        cout<<"EVEN"<<endl;
+    }
+    else{
+        cout<<"ODD"<<endl;
+    }
+}
+
+void isEven(int n)
+{
+    cout << ((n %2 == 0) ? "EVEN" : "ODD" )<<endl;
+}
+
 int main()
 {
     int n ;
@@ -24,4 +40,6 @@ int main()
     {
         cout<<"Odd number"<<endl;
     }
+
+    isEven(n);
 }
