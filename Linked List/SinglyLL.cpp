@@ -6,10 +6,22 @@ class Node{
     int data;
     Node* address;
     
+    // constructor
     Node(int data)
     {
         this->data = data;
         this->address = NULL;
+    }
+
+    // destructor
+    ~Node()
+    {
+        int value = this->data;
+        if(this->address != NULL)
+        {
+            delete address;
+            this->address = NULL;
+        }
     }
     
 };
@@ -62,6 +74,38 @@ void insertAtPosition(Node* &tail, Node* &head, int position, int data)
     temp->address = nodeToInsert;
 }
 
+void deleteNode(int position, Node* &head)
+{
+    // delete first node
+    if(position  == 1)
+    {
+        Node* temp = head;
+        head = head->address;
+
+        // memory free start node
+        temp->address = NULL;
+        delete temp;
+    }
+    // delete last or middle node
+    else{
+        Node* current = head;
+        Node* previous = NULL;
+
+        int count = 1;
+        if(count < position)
+        {
+            previous = current;
+            current = current->address;
+            count++;
+        }
+
+        previous->address = current->address;
+        current->address = NULL;
+
+        delete current;
+    }
+}
+
 void print(Node* &head)
 {
     Node* temp = head;
@@ -100,6 +144,9 @@ int main() {
     
     // insert at last
     insertAtPosition(tail, head, 6, 175);
+    print(head);
+
+    deleteNode(5, head);
     print(head);
     
     
