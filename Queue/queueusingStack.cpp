@@ -2,44 +2,87 @@
 using namespace std;
 
 // approach 1: Using two Stacks where push operation is O(N)
+// class queueusingStack{
+//     private:
+//     stack<int> s1, s2;
+
+//     public:
+//     queueusingStack(){}
+
+//     void push(int x){
+//         while(!s1.empty()){
+//             s2.push(s1.top());
+//             s1.pop();
+//         }
+
+//         s1.push(x);
+
+//         while(!s2.empty()){
+//             s1.push(s2.top());
+//             s2.pop();
+//         }
+//     }
+
+//     int pop(){
+//         if(s1.empty()) return -1;
+
+//         int topElement = s1.top();
+//         s1.pop();
+
+//         return topElement;
+//     }
+
+//     int peek(){
+//         if(s1.empty()) return -1;
+
+//         return s1.top();
+//     }
+
+//     bool isEmpty(){
+//         return s1.empty();
+//     }
+
+// };
+
+// Approach 2: using two stack where push operation is O(1)
 class queueusingStack{
     private:
-    stack<int> s1, s2;
+    stack<int> st1, st2;
 
     public:
     queueusingStack(){}
 
     void push(int x){
-        while(!s1.empty()){
-            s2.push(s1.top());
-            s1.pop();
-        }
-
-        s1.push(x);
-
-        while(!s2.empty()){
-            s1.push(s2.top());
-            s2.pop();
-        }
+        st1.push(x);
     }
 
     int pop(){
-        if(s1.empty()) return -1;
+        if(st2.empty()){
+            while(!st1.empty()){
+                st2.push(st1.top());
+                st1.pop();
+            }
+        }
 
-        int topElement = s1.top();
-        s1.pop();
+        int val = st2.top();
+        st2.pop();
 
-        return topElement;
+        return val;
     }
 
     int peek(){
-        if(s1.empty()) return -1;
+        if(st2.empty()){
+            while(!st1.empty()){
+                st2.push(st1.top());
+                st1.pop();
+            }
+        }
 
-        return s1.top();
+        return st2.top();
     }
 
     bool isEmpty(){
-        return s1.empty();
+        return st1.empty();
     }
 
 };
